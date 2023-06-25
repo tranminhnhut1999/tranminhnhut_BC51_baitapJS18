@@ -73,7 +73,7 @@ function sNhoNhat() {
  *      => True => Tích luỹ phần tử vào sDuong
  * 4. Duyệt mảng sDuong sau khi kiểm tra với listNumber
  * 5. So sánh min với sDuong
- *      min < sDuong[i]
+ *      min > sDuong[j]
  *          => True => Cập nhật giá trị cho min dựa theo sDuong
  * 6.Show kết quả sDuongNhoNhat
  */
@@ -87,11 +87,10 @@ function sdNhoNhat() {
   }
   var min = sDuong[0];
   for (var j = 1; j < sDuong.length; j++) {
-    if (sDuong[i] < min) {
-      min[j];
+    if (min > sDuong[j]) {
+      min = sDuong[j];
     }
   }
-  console.log(min);
   var result = "Số dương nhỏ nhất: " + min;
   document.getElementById("sdNhoNhat").innerHTML = result;
 }
@@ -150,4 +149,68 @@ function sXTangDan() {
 
 /**
  * Câu 8 : Tìm số nguyên đầu tiên
+ * 1. Tạo biến sDautien=0
+ * 2. Duyệt mảng listNumber
+ * 3. Kiểm tra phần tử đầu tiên trong listNumber
+ *    => True => break
+ * 4. Xuất soDT ra
  */
+function soDT() {
+  var sDautien = 0;
+  for (var i = 0; i < listNumber.length; i++) {
+    if (listNumber[i] === listNumber[0]) {
+      sDautien = listNumber[i];
+      break;
+    }
+  }
+  var result = "Số đầu tiên: " + sDautien;
+  document.getElementById("sDauTien").innerHTML = result;
+}
+
+/**
+ * Câu 9: Đếm số nguyên
+ *
+ */
+function demSoNguyen() {
+  var dSoNguyen = 0;
+  for (var i = 0; i < listNumber.length; i++) {
+    if (listNumber[i] % 1 == 0) dSoNguyen++;
+  }
+  var result = "Số nguyên: " + dSoNguyen;
+  document.getElementById("demSoNguyen").innerHTML = result;
+}
+
+/**
+ * Câu 10: So sánh số lượng số âm và dương
+ * 1. Tạo mảng đếm sDuong = 0
+ * 2. Duyệt mảng listNumber
+ * 3. Kiểm tra trong listNumber có số > 0
+ *    => True => Tăng biến đếm
+ * 4. Tạo mảng đếm sAm = 0
+ * 5. Duyệt mảng listNumber
+ * 6. Kiểm tra trong listNumber có số < 0
+ *    => True => Tăng biến đếm
+ * 7. So sánh 2 biến sDuong sAm
+ * 8. Xuất ssSDvaA ra
+ */
+function ssSDvaA() {
+  var sDuong = 0;
+  for (var i = 0; i < listNumber.length; i++) {
+    if (listNumber[i] > 0) {
+      sDuong++;
+    }
+  }
+  var sAm = 0;
+  for (var j = 0; j < listNumber.length; j++) {
+    if (listNumber[j] < 0) {
+      sAm++;
+    }
+  }
+  var ss = 0;
+  if (sDuong > sAm) {
+    ss = "Dương > Âm";
+  } else if (sDuong < sAm) {
+    ss = "Dương < Âm";
+  } else ss = "Dương = Âm";
+  document.getElementById("ssSDvaA").innerHTML = ss;
+}
